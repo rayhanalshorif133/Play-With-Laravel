@@ -16,6 +16,7 @@ class AffiliateController extends Controller
         $affiliateUser = Affiliate::where('user_id', $user->id)->with('user')->first();
         // hasRole('admin');
         if($user->hasRole('admin')){
+            $users = User::select()->where('id' , '!=' , auth()->user()->id)->with('affiliate')->get();
             return view('affiliates.list', compact('users'));
         }else{
             return view('affiliates.index', compact('affiliateUser'));
