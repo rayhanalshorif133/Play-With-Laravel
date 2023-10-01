@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AffiliateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +17,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    if(Auth::check()){
+        return redirect()->route('home');
+    }
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'affiliates', 'as' => 'affiliates.'],
+    function () {
+        Route::get('/', [AffiliateController::class, 'index'])->name('index');
+    }
+);
+
+
+// 
