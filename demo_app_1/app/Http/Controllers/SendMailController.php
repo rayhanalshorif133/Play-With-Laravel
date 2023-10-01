@@ -21,20 +21,13 @@ class SendMailController extends Controller
             'message' => 'required'
         ]);
 
-        $data = [
-            'email' => $request->email,
-            'subject' => $request->subject,
-            'message' => $request->message
-        ];
-
         $content = [
-            'subject' => 'This is the mail subject',
-            'body' => 'This is the email body of how to send email from laravel 10 with mailtrap.'
+            'subject' => $request->subject,
+            'body' => $request->message
         ];
 
-        Mail::to('your_email@gmail.com')->send(new SampleMail($content));
+        Mail::to($request->email)->send(new SampleMail($content));
 
-        return "Email has been sent.";
 
         // Mail::to($request->email)->send(new SendMail($data));
 
