@@ -3,6 +3,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
+        "tal": "npx tailwindcss -i ./resources/css/app.css -o ./public/dist/output.css --watch",
         "build": "vite build"
     },
     "devDependencies": {
