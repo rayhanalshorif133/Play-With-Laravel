@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <h3>{{ __('You are logged in!') }}</h3>
+                    <hr/>
+                    <h4>{{ __('Your role is !') }} {{Auth::user()->roles[0]->name}}</h4>
                 </div>
             </div>
         </div>

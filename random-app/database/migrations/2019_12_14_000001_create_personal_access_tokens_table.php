@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Database\Seeders\DatabaseSeeder;
 
 class CreatePersonalAccessTokensTable extends Migration
 {
@@ -22,6 +23,10 @@ class CreatePersonalAccessTokensTable extends Migration
             $table->timestamp('last_used_at')->nullable();
             $table->timestamps();
         });
+
+
+        $runSeeder = new DatabaseSeeder();
+        $runSeeder->run();        
     }
 
     /**
