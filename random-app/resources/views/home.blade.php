@@ -17,6 +17,12 @@
                     <h3>{{ __('You are logged in!') }}</h3>
                     <hr/>
                     <h4>{{ __('Your role is !') }} {{Auth::user()->roles[0]->name}}</h4>
+
+                    <div class="py-2">
+                        <a href="{{route('api.subscriber-notification')}}" class="btn btn-sm btn-primary">
+                            Subscriber Notification
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
