@@ -16,6 +16,11 @@ class PDFController extends Controller
           
         $pdf = PDF::loadView('myPDF', $data);
     
-        return $pdf->download('itsolutionstuff.pdf');
+        // store this pdf
+        $randNumber = rand(1, 1000);
+        $pdf->save(public_path().'/pdfs/'.$randNumber.'.pdf');
+        return redirect()->back();
+
+
     }
 }

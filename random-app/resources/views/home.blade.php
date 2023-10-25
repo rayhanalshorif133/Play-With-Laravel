@@ -25,7 +25,6 @@
                     </div>
                     
                     <div class="py-2">
-                        {{-- http://127.0.0.1:8000/generate-pdf?title=ki%20hocce%20suni --}}
                         <a href="{{route('generate-pdf')}}?title=This%20is%20a%20title" class="btn btn-sm btn-danger">
                             Generate PDF
                         </a>
