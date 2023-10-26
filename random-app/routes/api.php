@@ -19,4 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('subscriber-notification', [SubscriptionHandleController::class, 'subscriberNotification'])->name('subscriber-notification');
+Route::get('subscriber-notification', [SubscriptionHandleController::class, 'subAndUnSubNotification'])->name('subscriber-notification');
+
+
+Route::get('unSubscriber-notification', [SubscriptionHandleController::class, 'subAndUnSubNotification'])->name('unSubscriber-notification');

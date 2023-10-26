@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class SubscriptionHandleController extends Controller
 {
-    public function subscriberNotification(Request $request){
+    public function subAndUnSubNotification(Request $request){
         $data = [
             'msisdn' => $request->msisdn,
             'opr' => 'GP',
@@ -22,4 +22,5 @@ class SubscriptionHandleController extends Controller
         ];
         return $this->respondWithSuccess("data", $data);
     }
+
 }
