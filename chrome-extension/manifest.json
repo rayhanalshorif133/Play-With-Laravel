@@ -1,0 +1,11 @@
+{
+    "name": "Random User Info",
+    "version": "1.0.0",
+    "description": "latest random user info",
+    "manifest_version": 3,
+    "author": "Rayhan Al Shorif",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Latest Random User Info"
+    }
+}
