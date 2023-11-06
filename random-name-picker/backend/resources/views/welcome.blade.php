@@ -19,8 +19,8 @@
         
     </head>
     <body class="min-h-screen flex justify-center items-center">
-        <div class="px-5 py-2">
-            <a href="{{route('random.user')}}">Goto Random User API</a>
+        <div class="px-5 py-2 bg-green-600">
+            <a href="{{route('random.user')}}" target="_blank" class="text-white font-base font-semibold">Goto Random User API</a>
         </div>
     </body>
 </html>
