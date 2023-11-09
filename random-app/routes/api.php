@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SubscriptionHandleController;
+use App\Http\Controllers\Api\ReturnHandlerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,4 @@ Route::get('subscriber-notification', [SubscriptionHandleController::class, 'sub
 
 
 Route::get('unSubscriber-notification', [SubscriptionHandleController::class, 'subAndUnSubNotification'])->name('unSubscriber-notification');
+Route::get('return', [ReturnHandlerController::class, 'returnName'])->name('return-name');
