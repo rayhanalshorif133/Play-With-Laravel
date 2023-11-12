@@ -3,7 +3,7 @@
 namespace App\Exports;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
-use App\Models\Customer;
+use App\Models\Payment;
 use Maatwebsite\Excel\Concerns\FromView;
 use Illuminate\Contracts\View\View;
 
@@ -24,9 +24,10 @@ class PaymentExport implements FromView
     public function view(): View
     {
 
-        $customers = Customer::whereBetween('created_at', [$this->start_date, $this->end_date])->get();        
+        $payments = Payment::whereBetween('created_at', [$this->start_date, $this->end_date])->get();        
+
         return view('payment', [
-            'customers' => $customers
+            'payments' => $payments
         ]);
     }
 }

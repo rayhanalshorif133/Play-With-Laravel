@@ -21,8 +21,14 @@
     </head>
     <body class="flex items-center justify-center min-h-screen">
         <div class="flex space-x-4">
-            <a href="/customer/export?start_date=2023-11-02&end_date=2023-11-10" class="flex items-center justify-center py-3 px-2 bg-green-600 text-gray-100 rounded-lg">Export Customer Data</a>
-            <a href="/payment/export?start_date=2023-11-02&end_date=2023-11-10" class="flex items-center justify-center py-3 px-2 bg-blue-600 text-gray-100 rounded-lg">Export Payment Data</a>
+            <a href="/customer/export?start_date=2023-11-02&end_date=2023-11-10" 
+                class="text-sm font-semibold flex items-center justify-center py-3 px-2 bg-green-600 text-gray-100 rounded-lg">
+                Export Customer Data
+            </a>
+            <a href="/payment/export?start_date=2023-11-02&end_date=2023-11-10" 
+                class="text-sm font-semibold flex items-center justify-center py-3 px-2 bg-blue-600 text-gray-100 rounded-lg">
+                Export Payment Data
+            </a>
         </div>
     </body>
 </html>

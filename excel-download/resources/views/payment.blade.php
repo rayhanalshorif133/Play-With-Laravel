@@ -1,27 +1,29 @@
 <table>
     <thead>
     <tr>
-        <th style="font-weight: bold">Serial No</th>
-        <th style="font-weight: bold">Company Name</th>
-        <th style="font-weight: bold">pos_id</th>
-        <th style="font-weight: bold">pos_name </th>
-        <th style="font-weight: bold">email</th>
-        <th style="font-weight: bold">phone_number</th>
-        <th style="font-weight: bold">total_sales</th>
-        <th style="font-weight: bold">total_due</th>
+         <th style="font-weight: bold">Serial No</th>
+         <th style="font-weight: bold">company_name</th>
+         <th style="font-weight: bold">pos_info</th>
+         <th style="font-weight: bold">payment_method</th>
+         <th style="font-weight: bold">payment_status</th>
+         <th style="font-weight: bold">payment_history</th>
+         <th style="font-weight: bold">payment_amount</th>
+         <th style="font-weight: bold">due_amount</th>
+         <th style="font-weight: bold">payment_approval</th>
     </tr>
     </thead>
     <tbody>
-    @foreach($customers as $customer)
+    @foreach($payments as $payment)
         <tr>
-            <td>{{ $customer->serial_no }}</td>
-            <td>{{ $customer->company_name }}</td>
-            <td>{{ $customer->pos_id }}</td>
-            <td>{{ $customer->pos_name }}</td>
-            <td>{{ $customer->email }}</td>
-            <td>{{ $customer->phone_number }}</td>
-            <td>{{ $customer->total_sales }}</td>
-            <td>{{ $customer->total_due }}</td>
+            <td>{{ $loop->index + 1}}</td>
+            <td>{{ $payment->company_name}}</td>
+            <td>{{ $payment->pos_info}}</td>
+            <td>{{ $payment->payment_method}}</td>
+            <td>{{ $payment->payment_status}}</td>
+            <td>{{ $payment->payment_history}}</td>
+            <td>{{ $payment->payment_amount}}</td>
+            <td>{{ $payment->due_amount}}</td>
+            <td>{{ $payment->payment_approval}}</td>
         </tr>
     @endforeach
     </tbody>

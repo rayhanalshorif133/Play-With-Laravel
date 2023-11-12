@@ -14,7 +14,7 @@
 <tbody>
 @foreach($customers as $customer)
     <tr>
-        <td>{{ $customer->serial_no }}</td>
+        <td>{{ $loop->index + 1}}</td>
         <td>{{ $customer->company_name }}</td>
         <td>{{ $customer->pos_id }}</td>
         <td>{{ $customer->pos_name }}</td>
