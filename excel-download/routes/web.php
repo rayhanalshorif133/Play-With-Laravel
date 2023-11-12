@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ExcelExportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,5 +19,6 @@ Route::get('/', function () {
 });
 
 // /?start_date=2023-11-02&end_date=2023-11-02
-Route::get('customer/export', [CustomerController::class, 'export']);
+Route::get('customer/export', [ExcelExportController::class, 'customerExport']);
+Route::get('payment/export', [ExcelExportController::class, 'paymentExport']);
 

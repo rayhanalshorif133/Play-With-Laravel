@@ -7,7 +7,7 @@ use App\Models\Customer;
 use Maatwebsite\Excel\Concerns\FromView;
 use Illuminate\Contracts\View\View;
 
-class CustomerExport implements FromView
+class PaymentExport implements FromView
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -25,7 +25,7 @@ class CustomerExport implements FromView
     {
 
         $customers = Customer::whereBetween('created_at', [$this->start_date, $this->end_date])->get();        
-        return view('customer', [
+        return view('payment', [
             'customers' => $customers
         ]);
     }
