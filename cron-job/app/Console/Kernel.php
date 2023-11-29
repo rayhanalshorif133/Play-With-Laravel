@@ -15,7 +15,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+
+        // run every 10 seconds
+        $schedule->command('user:delete')->everyMinute();
     }
 
     /**

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Database\Seeders\DatabaseSeeder;
 
 class CreateUsersTable extends Migration
 {
@@ -22,6 +23,9 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        $dbSeeder = new DatabaseSeeder();
+        $dbSeeder->run();
     }
 
     /**
