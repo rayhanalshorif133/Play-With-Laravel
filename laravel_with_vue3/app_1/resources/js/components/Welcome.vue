@@ -11,5 +11,6 @@ export default {
             alert('Vue 3 is working!')
         }
     })
+
 }
 </script>
