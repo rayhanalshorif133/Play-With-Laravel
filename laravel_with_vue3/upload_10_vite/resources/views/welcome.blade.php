@@ -11,6 +11,9 @@
         <div id="welcome"></div>
         <div id="user"></div>
         <div id="product"></div>
-        @vite('resources/js/app.js')
+        {{-- @vite('resources/js/app.js') --}}
+        {{-- vite build --}}
+        @vite('resources/js/app.js', 'build/assets/app-DVOnruI_.js')
+        {{-- <script type="module" src="{{asset('build/assets/app-DVOnruI_.js')}}"></script> --}}
     </body>
 </html>
