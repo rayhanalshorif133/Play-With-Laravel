@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Swiper JS Library</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+
+    <style>
+        .swiper {
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="sumClass"></div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+
+
+        class Calculator {
+            
+            constructor(className,oparation, numbers) {
+                this.className = className;
+                this.oparation = oparation;
+                this.numbers = numbers;
+
+                if(this.oparation == 'sum'){
+                    var html = '';
+                    var length = this.numbers.length - 1;
+                    var sum = 0;
+                    this.numbers.length > 0 && this.numbers.map(function(n,index){
+                        sum += parseFloat(n);
+                        if(length == index){
+                            html += `<span>${n} = ${sum}</span>`;
+                        }else{
+                            html += `<span>${n} + </span>`;
+                        }
+                    });
+                    $(this.className).html(html);
+                }
+                
+            }
+
+
+
+
+        }
+
+        new Calculator(".sumClass","sum", [10,20,30,200,30,30]);
+
+    </script>
+
+</body>
+
+</html>
