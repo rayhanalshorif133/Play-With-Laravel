@@ -17,9 +17,8 @@
             <div class="flex space-x-[3rem] my-5">
                 <div class="relative">
                     <div class="bg-gray-600 h-10 w-10 rounded-full mt-5 circle" id="item-0"></div>
-                    <div
-                        class="bg-red-200 h-0 w-[4px] rounded-full line-1 absolute top-10 -z-10 left-[18px] circle-line-0">
-                    </div>
+                    <div class="bg-red-200 h-0 w-[4px] rounded-full line-1 absolute top-10 -z-10 left-[18px] circle-line-0"></div>
+                    <div class="bg-green-600 h-0 w-[4px] rounded-full absolute top-10 -z-10 left-[18px] green-line-0"></div>
                 </div>
                 <div class="w-96">
                     <h2 class="text-base font-medium">Contract Cleaning Services</h2>
@@ -32,8 +31,9 @@
                 <div class="relative">
                     <div class="bg-gray-600 h-10 w-10 rounded-full mt-5 circle" id="item-1"></div>
                     <div
-                        class="bg-red-200 h-0 w-[4px] rounded-full line-1 absolute top-10 -z-10 left-[18px] circle-line-1">
+                        class="bg-red-200 h-0 w-[4px] rounded-full absolute top-10 -z-10 left-[18px] circle-line-1">
                     </div>
+                    
                 </div>
                 <div class="w-96">
                     <h2 class="text-base font-medium">Contract Cleaning Services</h2>
@@ -1160,10 +1160,16 @@
             $(document).on('scroll',function() {
 
                 GETITEMS.map(function (element,index) {
-                    var item1 = document.getElementById(element);
-                    var distanceTopToItem1 = item1.getBoundingClientRect().top;
+                    var item = document.getElementById(element);
+                    var distanceTopToItem1 = item.getBoundingClientRect().top;
+                    console.log(distanceTopToItem1)
+
+                    var distance = 100;
                     if(distanceTopToItem1 < 400){
                         $(`#${element}`).removeClass('bg-gray-600').addClass('bg-green-600');
+                        
+                        $(`.green-line-${index}`).css('height', `${distance}px`);
+
                     }else{
                         $(`#${element}`).addClass('bg-gray-600').removeClass('bg-green-600');
                     }
