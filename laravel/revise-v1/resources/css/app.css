@@ -8,7 +8,7 @@
 @layer components {
 
     .container{
-        @apply min-w-[1200px] mx-auto;
+        @apply min-w-full sm:min-w-[540px] md:min-w-[720px] lg:min-w-[960px] xl:min-w-[1140px] mx-auto;
     }
 
     .btn-primary {
@@ -24,10 +24,10 @@
     }
 
     .box{
-        @apply block text-white h-44 w-44 bg-gray-200 hover:bg-green-600 transition-all duration-300 ease-in-out shadow-sm shadow-gray-500 hover:shadow-green-500 hover:shadow-md;
+        @apply flex items-center justify-center  text-white h-44 w-44 bg-gray-200 hover:bg-green-600 transition-all duration-300 ease-in-out shadow-sm shadow-gray-500 hover:shadow-green-500 hover:shadow-md;
     }
 
     .box .title{
-        @apply text-black font-semibold text-xl;
+        @apply text-black font-semibold text-xl text-center;
     }
   }
