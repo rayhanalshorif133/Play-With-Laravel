@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NavigateController;
 
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('welcome');
+})->name('welcome');
 
 
 Route::get('/role-permissions', [NavigateController::class, 'rolePermissions'])->name('role-permissions');
