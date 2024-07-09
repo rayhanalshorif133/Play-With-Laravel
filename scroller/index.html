@@ -35,6 +35,8 @@
                     <div class="bg-gray-600 h-10 w-10 rounded-full mt-5 circle" id="item-1"></div>
                     <div class="bg-red-200 h-0 w-[4px] rounded-full absolute top-10 -z-10 left-[18px] circle-line-1">
                     </div>
+                    <div class="bg-green-600 h-0 w-[4px] rounded-full absolute top-10 -z-10 left-[18px] green-line-1">
+                    </div>
 
                 </div>
                 <div class="w-96">
@@ -49,6 +51,8 @@
                     <div class="bg-gray-600 h-10 w-10 rounded-full mt-5 circle" id="item-2"></div>
                     <div
                         class="bg-red-200 h-0 w-[4px] rounded-full line-1 absolute top-10 -z-10 left-[18px] circle-line-2">
+                    </div>
+                    <div class="bg-green-600 h-0 w-[4px] rounded-full absolute top-10 -z-10 left-[18px] green-line-2">
                     </div>
                 </div>
                 <div class="w-96">
@@ -74,36 +78,6 @@
                         facere assumenda quod aliquid ad tempore velit quasi libero repudiandae rerum necessitatibus nam
                         commodi corporis ut fugiat!
                     </p>
-                </div>
-            </div>
-            <div class="flex space-x-[3rem] my-5">
-                <div class="relative">
-                    <div class="bg-gray-600 h-10 w-10 rounded-full mt-5 circle" id="item-4"></div>
-                    <div
-                        class="bg-red-200 h-0 w-[4px] rounded-full line-1 absolute top-10 -z-10 left-[18px] circle-line-4">
-                    </div>
-                </div>
-                <div class="w-96">
-                    <h2 class="text-base font-medium">Contract Cleaning Services</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos iusto quia, soluta
-                        facere assumenda quod aliquid ad tempore velit quasi libero repudiandae rerum necessitatibus nam
-                        commodi corporis ut fugiat!
-
-                </div>
-            </div>
-            <div class="flex space-x-[3rem] my-5">
-                <div class="relative">
-                    <div class="bg-gray-600 h-10 w-10 rounded-full mt-5 circle" id="item-5"></div>
-                    <div
-                        class="bg-red-200 h-0 w-[4px] rounded-full line-1 absolute top-10 -z-10 left-[18px] circle-line-5">
-                    </div>
-                </div>
-                <div class="w-96">
-                    <h2 class="text-base font-medium">Contract Cleaning Services</h2>
-                    <p>Have your communal spaces regularly cleaned with our contract cleaning services. Please
-                        contact
-                        us to get a no-obligation, bespoke quote.</p>
                 </div>
             </div>
         </div>
@@ -135,6 +109,7 @@
                 if (element_1 != undefined && element_2 != undefined) {
                     const distance = getDistanceBetweenElements(element_1, element_2);
                     $(`.circle-line-${index}`).css('height', `${distance}px`);
+                    $(`.circle-line-${index}`).addClass(`height-${distance}`);
                 }
             }
 
@@ -146,13 +121,17 @@
                     var item = document.getElementById(element);
                     var distanceTopToItem = item.getBoundingClientRect().top;
                     var distance = 0;
+
                     if (distanceTopToItem < 400) {
                         $(`#${element}`).removeClass('bg-gray-600').addClass('bg-green-600');
 
-                        $(`.green-line-${index}`).css('height', `${distance}px`);
+                        var height = $(`#${element}`).next().attr('class').split(' ').reverse()[0];
+                        height = height.split('-')[1];
+                        $(`.green-line-${index}`).css('height', `${height}px`);
 
                     } else {
                         $(`#${element}`).addClass('bg-gray-600').removeClass('bg-green-600');
+                        $(`.green-line-${index}`).css('height', `${0}px`);
                     }
                 });
 
