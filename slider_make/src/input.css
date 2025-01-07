@@ -1,8 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-.scale-y-flip {
-    transform: rotateY(180deg);
-}

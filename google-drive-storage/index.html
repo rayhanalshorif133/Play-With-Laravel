@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://apis.google.com/js/api.js"></script>
+
+</head>
+
+<body>
+    <button id="uploadBtn">Upload File</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#uploadBtn').on('click', () => {
+            authenticate();
+            const fileContent = 'Hello, Google Drive!'; // Example content
+            const fileName = 'example.txt';
+            uploadFile(fileContent, fileName);
+        });
+    </script>
+
+    <script>
+        const CLIENT_ID = '351582830804-tipmp5qscep4180jb2f5o3mk4vnr55gr.apps.googleusercontent.com'; // Replace with your OAuth client ID
+        const API_KEY = 'AIzaSyBs9fVUY-T28SznHfE-JkcfrYAD9p2ECU0';     // Replace with your API key
+        const SCOPES = 'https://accounts.google.com/o/oauth2/auth';
+
+        function loadClient() {
+            gapi.load('client:auth2', () => {
+                gapi.client.init({
+                    apiKey: API_KEY,
+                    clientId: CLIENT_ID,
+                    scope: SCOPES,
+                }).then(() => {
+                    console.log('Google API client loaded.');
+                });
+            });
+        }
+
+        function authenticate() {
+            gapi.auth2.getAuthInstance().signIn().then(() => {
+                console.log('Authenticated successfully!');
+            });
+        }
+
+        function uploadFile(fileContent, fileName) {
+            const boundary = '-------314159265358979323846';
+            const delimiter = `\r\n--${boundary}\r\n`;
+            const closeDelimiter = `\r\n--${boundary}--`;
+            const metadata = {
+                name: fileName,
+                mimeType: 'text/plain',
+            };
+
+            const multipartRequestBody =
+                delimiter +
+                'Content-Type: application/json\r\n\r\n' +
+                JSON.stringify(metadata) +
+                delimiter +
+                'Content-Type: text/plain\r\n\r\n' +
+                fileContent +
+                closeDelimiter;
+
+            gapi.client.request({
+                path: '/upload/drive/v3/files',
+                method: 'POST',
+                params: { uploadType: 'multipart' },
+                headers: {
+                    'Content-Type': `multipart/related; boundary="${boundary}"`,
+                },
+                body: multipartRequestBody,
+            }).then((response) => {
+                console.log('File uploaded:', response);
+            });
+        }
+
+        loadClient();
+    </script>
+
+
+</body>
+
+</html>

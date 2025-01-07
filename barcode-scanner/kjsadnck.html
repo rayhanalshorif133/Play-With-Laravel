@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document dsad</title>
+</head>
+
+<body>
+
+    <input type="text" id="barcodeResult" placeholder="Scan Barcode" readonly>
+    <button id="scanButton">Scan Barcode</button>
+
+    <script src="https://unpkg.com/@zxing/library@0.18.2"></script>
+    <script>
+        // Get HTML elements
+        const scanButton = document.getElementById('scanButton');
+        const barcodeResult = document.getElementById('barcodeResult');
+
+        // Create an instance of the browser's barcode reader
+        const codeReader = new ZXing.BrowserBarcodeReader();
+
+        scanButton.addEventListener('click', () => {
+            codeReader
+                .decodeOnceFromVideoDevice(undefined, 'video')
+                .then(result => {
+                    barcodeResult.value = result.getText();
+                })
+                .catch(err => console.error(err));
+        });
+    </script>
+
+</body>
+
+</html>
