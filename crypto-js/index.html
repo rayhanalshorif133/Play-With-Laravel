@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    CryptoJS
+
+
+    <script>
+        const crypto = document.createElement('script');
+        crypto.src = "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js";
+
+        crypto.onload = () => {
+
+            var sha256 = CryptoJS.algo.SHA256.create();
+            sha256.update("Message Part 1");
+
+            var hash = sha256.finalize();
+            console.log(hash.toString(CryptoJS.enc.Hex)); // This prints the hex string of the hash
+
+
+
+            // You can now use axios or any library loaded here
+        };
+        document.head.appendChild(crypto);
+
+
+
+
+    </script>
+</body>
+
+</html>
