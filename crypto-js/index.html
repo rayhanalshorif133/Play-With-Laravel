@@ -19,14 +19,10 @@
 
             var sha256 = CryptoJS.algo.SHA256.create();
             sha256.update("Message Part 1");
-
             var hash = sha256.finalize();
-            console.log(hash.toString(CryptoJS.enc.Hex)); // This prints the hex string of the hash
-
-
-
-            // You can now use axios or any library loaded here
+            console.log(hash.toString(CryptoJS.enc.Hex)); 
         };
+        
         document.head.appendChild(crypto);
 
 
